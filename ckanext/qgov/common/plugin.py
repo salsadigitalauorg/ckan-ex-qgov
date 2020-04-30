@@ -191,6 +191,8 @@ def auth_group_show(context, data_dict):
     but if user details have been requested, it requires a group admin.
     """
     user = context.get('user')
+    if authz.is_sysadmin(user):
+        return {'success': True}
     group = logic_auth.get_group_object(context, data_dict)
     if group.state == 'active' and \
         not asbool(data_dict.get('include_users', False)) and \
@@ -218,6 +220,8 @@ def _requester_is_admin(context):
 def _has_user_permission_for_some_group(user_name, permission):
     """Check if the user has the given permission for any group.
     """
+    if authz.is_sysadmin(user_name):
+        return True
     user_id = authz.get_user_id_for_username(user_name, allow_none=True)
     if not user_id:
         return False
