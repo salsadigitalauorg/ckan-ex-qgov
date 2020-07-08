@@ -116,6 +116,20 @@
     "status": "active",
     "title": "Other (Open)",
     "url": ""
+  },
+  {
+    "domain_content": true,
+    "domain_data": false,
+    "domain_software": false,
+    "family": "",
+    "id": "not-open",
+    "is_generic": true,
+    "is_okd_compliant": false,
+    "is_osi_compliant": false,
+    "maintainer": "",
+    "status": "active",
+    "title": "NOT Open License",
+    "url": ""
   }
   
 ]
